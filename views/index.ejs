@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Festive&family=Roboto&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Filnemateca</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="logo">Filnemateca</div>
+            <form action = "/busca" method = 'get'>
+                <input type="search" name="busca" id="busca">
+                <select name="censura">
+                    <option value="0">Livre</option>
+                    <option value="8">Até 8 anos</option>
+                    <option value="10">Até 10 anos</option>
+                    <option value="12">Até 12 anos</option>
+                    <option value="14">Até 14 anos</option>
+                    <option value="16">Até 16 anos</option>
+                    <option value="18">Até 18 anos</option>
+                </select>
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </header>
+    <main class="container">
+
+
+        <% for(const filme of filmes){ %>
+            
+            <article>
+                <img src="/img/cartazes/<%= filme.cartaz %>" alt="Encanto">
+                <a href="/filme/<%= filme.id %>">
+                    <span class="titulo"><%= filme.titulo %></span>
+                    <span class="duracao">Duração: 110min</span>
+                </a>
+            </article>
+
+        <%}%>   
+        
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
